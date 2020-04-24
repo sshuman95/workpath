@@ -1,0 +1,25 @@
+.mainForm{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.button{
+    margin:5px auto;
+}
+
+.keyword{
+    margin:5px auto;
+
+}
+.article{
+    display: flex;
+    flex-direction: column;
+    width:600px;
+    margin:0 auto;
+    border:1px solid black;
+}
+
+.error{
+    color:red;
+}
