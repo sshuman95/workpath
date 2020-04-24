@@ -36,7 +36,8 @@ const getResults = (event) =>{
             data.results.forEach(result=>{
             if(result.abstract.split(" ").includes(keyword) ){
                 newArticles.push(result)
-            } else if(result.abstract.split(" ").includes(keyword.toUpperCase())){
+            } else if(result.abstract.split(" ").includes(keyword[0].toUpperCase()+keyword.slice(1))){
+                
                 newArticles.push(result)
             } else if(result.abstract.split(" ").includes(keyword.toLowerCase())){
                 newArticles.push(result)
