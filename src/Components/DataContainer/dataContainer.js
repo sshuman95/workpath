@@ -34,7 +34,11 @@ const getResults = (event) =>{
         })
         .then((data) => {
             data.results.forEach(result=>{
-            if(result.title.split(" ").includes(keyword) ){
+            if(result.abstract.split(" ").includes(keyword) ){
+                newArticles.push(result)
+            } else if(result.abstract.split(" ").includes(keyword.toUpperCase())){
+                newArticles.push(result)
+            } else if(result.abstract.split(" ").includes(keyword.toLowerCase())){
                 newArticles.push(result)
             }
         })
@@ -46,6 +50,7 @@ const getResults = (event) =>{
         })
    }
   };
+ 
 
   return (
    <section className='mainForm'>
@@ -69,7 +74,7 @@ const getResults = (event) =>{
         {error?<span className="error">{error}</span>:''}
         </form>
         {articles.length===0?"":
-        <div>
+        <div style={{display:'flex',flexWrap:'wrap'}}>
             {articles.slice(0,10).map(article=>{
                 let rawTime = new Date(article.published_date);
                 let finalTime = new Date(rawTime).toLocaleString('en-US',{timezone:'ET'});
